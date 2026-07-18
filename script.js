@@ -1,131 +1,17 @@
-const startButton = document.getElementById("startButton");
-
-startButton.addEventListener("click", iniciarCarta);
-
-
-function iniciarCarta(){
-
-    const container = document.querySelector(".container");
-
-    container.style.opacity = "0";
-
-
-    setTimeout(()=>{
-
-        container.innerHTML = `
-
-        <div class="intro">
-
-            <p class="intro1">
-                Bienvenida a esta carta 
-            </p>
-
-            <p class="intro2">
-                me estoy estresando MUCHO por esto 
-            </p>
-
-            <p class="intro3">
-                asi que disfrutala 
-            </p>
-
-           <p class="intro4">
-    como no te puedo dar una presencial,
-    asi que disfrutala :))
-</p>
-
-        </div>
-
-        `;
-
-
-        container.style.opacity="1";
-
-
-        setTimeout(mostrarCarta,7000);
-
-
-    },1000);
-
-
+// Función para pasar de la bienvenida al contenido principal
+function mostrarPantalla2() {
+    document.getElementById('pantalla1').classList.add('hidden');
+    document.getElementById('pantalla2').classList.remove('hidden');
 }
 
-
-
-function mostrarCarta(){
-
-    const container = document.querySelector(".container");
-
-
-    container.style.opacity="0";
-
-
-    setTimeout(()=>{
-
-
-        container.innerHTML=`
-
-        <div class="mensaje">
-
-            <h2>
-            Hola, My Marcelaaa ❤️
-            </h2>
-
-            <p id="textoCarta"></p>
-
-        </div>
-
-
-        `;
-
-
-        container.style.opacity="1";
-
-
-        escribirCarta();
-
-
-    },1000);
-
-
+// Función para manejar las cajas desplegables de los botones
+function mostrarDetalle(id) {
+    // Oculta todas las cajas de texto primero para que no se superpongan
+    const cajas = document.querySelectorAll('.content-box');
+    cajas.forEach(caja => caja.classList.add('hidden'));
+    
+    // Muestra únicamente la caja del botón que presionaste
+    const cajaSeleccionada = document.getElementById('text-' + id);
+    cajaSeleccionada.classList.remove('hidden');
 }
 
-
-
-const carta = `
-
-Si estás leyendo esto...
-
-es porque decidí hacer algo diferente.
-
-No compré un regalo.
-
-No copié una carta de Internet.
-
-Quise crear algo desde cero.
-
-Algo que fuera únicamente para ti.
-
-❤️
-
-`;
-
-
-let i=0;
-
-
-function escribirCarta(){
-
-    const texto=document.getElementById("textoCarta");
-
-
-    if(i<carta.length){
-
-        texto.innerHTML += carta.charAt(i);
-
-        i++;
-
-        setTimeout(escribirCarta,45);
-
-    }
-
-}
