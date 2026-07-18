@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para MELLLLLLLLLLL</title>
-    <!-- Vinculamos el archivo CSS externo -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,7 +17,7 @@
     </div>
 
     <!-- PANTALLA 2: TEXTO PRINCIPAL Y MENÚ -->
-    <div id="pantalla2" class="container hidden">
+    <div id="pantalla2" class="container invisible hidden">
         <p>Bueno ya sabes, no pude dársela a haland pero a ti sii.</p>
         <p><strong>Tú sí me escuchas.<br>
         Tú sí me comprendes.<br>
@@ -30,30 +29,28 @@
         <!-- Botones Interactivos -->
         <div class="menu-buttons">
             <button class="menu-btn" onclick="mostrarDetalle('atractiva')">Cosas que tú crees que no tienes pero eres</button>
-            <div id="text-atractiva" class="content-box hidden">
+            <div id="text-atractiva" class="content-box">
                 <p>No xq yo lo diga, hasta mis amigos lo dicen, dicen que eres más que Marcela incluso JAJAJAJA.</p>
             </div>
 
             <button class="menu-btn" onclick="mostrarDetalle('escuchar')">Sabes escuchar</button>
-            <div id="text-escuchar" class="content-box hidden">
+            <div id="text-escuchar" class="content-box">
                 <p>Aunq digas cosas como que no sabes qué decir JAJAJA, agradezco mucho desahogarme con alguien que no me critica.</p>
             </div>
 
             <button class="menu-btn" onclick="mostrarDetalle('amiga')">Por ser mi mejor amiga</button>
-            <div id="text-amiga" class="content-box hidden">
+            <div id="text-amiga" class="content-box">
                 <p>Porque realmente nadie ha querido ser así con este sujeto. Es increíble lo que unas palabras puedan cambiar, ¿no crees? Literalmente hablo más contigo que con Marcela y lo agradezco. Sos increíble y maravillosa MELLL, nuevamente gracias x existir.</p>
             </div>
 
             <button class="menu-btn btn-toma" onclick="mostrarDetalle('bakugo')">Toma</button>
-            <div id="text-bakugo" class="content-box hidden box-bakugo">
+            <div id="text-bakugo" class="content-box box-bakugo">
                 <p><strong>Toma una figura gigante de bakugo</strong></p>
-                <!-- Recuerda cambiar este link por el de la foto real de Bakugo -->
                 <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=1000&auto=format&fit=crop" alt="Bakugo Gigante" class="bakugo-img">
             </div>
         </div>
     </div>
 
-    <!-- Vinculamos el archivo JavaScript externo -->
     <script src="script.js"></script>
 </body>
 </html>
