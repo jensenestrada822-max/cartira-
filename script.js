@@ -1,24 +1,35 @@
-// Función para pasar de la bienvenida al contenido principal
+// Función para pasar de la bienvenida al contenido con transición calmada
 function mostrarPantalla2() {
-    document.getElementById('pantalla1').classList.add('hidden');
-    document.getElementById('pantalla2').classList.remove('hidden');
+    const p1 = document.getElementById('pantalla1');
+    const p2 = document.getElementById('pantalla2');
+
+    // 1. Desvanecemos la primera pantalla suavemente
+    p1.classList.add('invisible');
+
+    // 2. Esperamos a que termine el fade-out (800ms) para cambiar de contenedor
+    setTimeout(() => {
+        p1.classList.add('hidden'); // Ocultamos del todo la P1
+        p2.classList.remove('hidden'); // Hacemos que la P2 exista en el HTML
+        
+        // 3. Un mini delay para que el navegador capte el cambio y haga el fade-in suave
+        setTimeout(() => {
+            p2.classList.remove('invisible');
+        }, 50);
+    }, 800);
 }
 
-// Función para manejar las cajas con transición suave
+// Función para manejar las cajas desplegables con animación
 function mostrarDetalle(id) {
     const cajaSeleccionada = document.getElementById('text-' + id);
-    
-    // Guardamos si la caja clickeada ya estaba abierta antes de cerrar las demás
     const yaEstabaActiva = cajaSeleccionada.classList.contains('active');
     
-    // Seleccionamos todas las cajas de contenido y les quitamos el estado activo
+    // Cerramos todas las cajas primero
     const cajas = document.querySelectorAll('.content-box');
     cajas.forEach(caja => {
         caja.classList.remove('active');
     });
     
-    // Si NO estaba abierta, le ponemos la clase active para que se despliegue con la transición
-    // Si SÍ estaba abierta, se queda cerrada (efecto acordeón completo)
+    // Si no estaba abierta, la abrimos
     if (!yaEstabaActiva) {
         cajaSeleccionada.classList.add('active');
     }
