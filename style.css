@@ -3,7 +3,6 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* Degradado de atardecer: de naranja brillante a un tono cálido profundo */
     background: linear-gradient(180deg, #ff7e5f, #feb47b, #2f2536);
     background-size: cover;
     background-attachment: fixed;
@@ -16,7 +15,7 @@ body {
 }
 
 .container {
-    background: rgba(47, 37, 54, 0.85); /* Fondo oscuro semitransparente para el contraste */
+    background: rgba(47, 37, 54, 0.85);
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 8px 32px 0 rgba(254, 180, 123, 0.3);
@@ -24,6 +23,21 @@ body {
     max-width: 500px;
     width: 90%;
     margin: 20px;
+    
+    /* Transición calmada para el cambio de pantallas */
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Clases para controlar la transición de las pantallas principales */
+.hidden {
+    display: none !important;
+}
+
+.invisible {
+    opacity: 0;
+    transform: scale(0.95);
 }
 
 h1 {
@@ -62,10 +76,6 @@ p {
     transform: scale(1.05);
 }
 
-.hidden {
-    display: none;
-}
-
 .linea-separadora {
     border: 0; 
     height: 1px; 
@@ -99,68 +109,40 @@ p {
 .btn-toma {
     background-color: #ff7e5f; 
     color: white;
+    border: none;
 }
 
-.content-box {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 15px;
-    border-radius: 8px;
-    margin-top: 15px;
-    border-left: 4px solid #ff7e5f;
-    text-align: left;
-}
-
-.box-bakugo {
-    text-align: center;
-}
-
-/* Ajuste para la imagen GIGANTE de Bakugo */
-.bakugo-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-top: 15px;
-    border: 3px solid #ff7e5f;
-    box-shadow: 0 0 20px #ff7e5f;
-}
-/* --- NUEVOS ESTILOS PARA LA TRANSICIÓN SUAVE --- */
-
-/* La clase .hidden se queda solo para el cambio de la Pantalla 1 a la Pantalla 2 */
-.hidden {
-    display: none;
-}
-
-/* Estado base de las cajas de contenido (ocultas pero listas para animarse) */
+/* --- TRANSICIÓN DE LOS 4 BOTONES DE ABAJO --- */
 .content-box {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     border-left: 4px solid #ff7e5f;
     text-align: left;
     
-    /* Truco CSS para animar la apertura */
+    /* Forzamos a que inicien completamente ocultas y cerradas */
+    display: block; 
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-    padding: 0 15px; /* El padding vertical se quita para que colapse a 0 totalmente */
+    padding: 0 15px;
     margin-top: 0;
     
-    /* Definimos el tiempo de la animación (0.5 segundos) */
-    transition: max-height 0.5s ease-out, opacity 0.4s ease-out, padding 0.3s ease, margin 0.3s ease;
+    /* Transición suave para la apertura */
+    transition: max-height 0.6s ease-in-out, opacity 0.5s ease-in-out, padding 0.3s ease, margin 0.3s ease;
 }
 
 .box-bakugo {
     text-align: center;
 }
 
-/* Clase que se aplicará dinámicamente con JS cuando el botón esté activo */
+/* Clase activa para abrir los paneles */
 .content-box.active {
-    max-height: 800px; /* Un tamaño máximo lo suficientemente grande para que quepa el texto y la imagen */
+    max-height: 1000px; /* Espacio suficiente para el texto y la imagen de Bakugo */
     opacity: 1;
     padding: 15px;
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
-/* Ajuste para la imagen GIGANTE de Bakugo */
 .bakugo-img {
     max-width: 100%;
     height: auto;
