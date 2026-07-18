@@ -123,3 +123,49 @@ p {
     border: 3px solid #ff7e5f;
     box-shadow: 0 0 20px #ff7e5f;
 }
+/* --- NUEVOS ESTILOS PARA LA TRANSICIÓN SUAVE --- */
+
+/* La clase .hidden se queda solo para el cambio de la Pantalla 1 a la Pantalla 2 */
+.hidden {
+    display: none;
+}
+
+/* Estado base de las cajas de contenido (ocultas pero listas para animarse) */
+.content-box {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    border-left: 4px solid #ff7e5f;
+    text-align: left;
+    
+    /* Truco CSS para animar la apertura */
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0 15px; /* El padding vertical se quita para que colapse a 0 totalmente */
+    margin-top: 0;
+    
+    /* Definimos el tiempo de la animación (0.5 segundos) */
+    transition: max-height 0.5s ease-out, opacity 0.4s ease-out, padding 0.3s ease, margin 0.3s ease;
+}
+
+.box-bakugo {
+    text-align: center;
+}
+
+/* Clase que se aplicará dinámicamente con JS cuando el botón esté activo */
+.content-box.active {
+    max-height: 800px; /* Un tamaño máximo lo suficientemente grande para que quepa el texto y la imagen */
+    opacity: 1;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+/* Ajuste para la imagen GIGANTE de Bakugo */
+.bakugo-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 15px;
+    border: 3px solid #ff7e5f;
+    box-shadow: 0 0 20px #ff7e5f;
+}
